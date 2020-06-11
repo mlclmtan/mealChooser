@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="select">您這餐預算是：
+        <div class="js-inline-picker">2048-10-24 05:12</div>
+        <select name="ipd" id="ipd">
+            <option value="70">70</option>
+            <option value="90">90</option>
+            <option value="110">110</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+        </select>
+        <a id="randomSelect">推薦餐廳</a>
+        <h3></h3>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let allData=[];
+        let filteredData;
+        let price;
+
+        makeRequest();
+        updateFilter();
+
+        async function makeRequest() {
+            try {
+                let response = await axios({
+                    method: 'post',
+                    url: './api/post/read.php'
+                });
+                Object.keys(response.data).forEach((y)=>{
+                    response.data[y].pricelow=+response.data[y].pricelow;
+                    response.data[y].priceup=+response.data[y].priceup;
+                })
+                allData = response.data;
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        
+        function updateFilter(){
+            filteredData = [];
+            let selectedIndex = document.querySelector('#ipd').selectedIndex;
+            price = document.querySelector('#ipd')[selectedIndex].value;
+            allData.forEach(function (item) {
+                if (item.pricelow < price) {
+                    filteredData.push(item);
+                }
+            });
+        }
+
+        function recommendRestaurant(){
+            let index = Math.floor(Math.random() * filteredData.length);
+            document.querySelector('h3').innerHTML =
+                `推薦您：${filteredData[index].name}，價錢大概（${filteredData[index].pricelow}~${filteredData[index].priceup}元）喔`;
+        }
+        
+        document.getElementById("ipd").addEventListener("change", updateFilter);
+        document.getElementById("randomSelect").addEventListener("click", recommendRestaurant);
+    </script>
+</body>
+
+</html>

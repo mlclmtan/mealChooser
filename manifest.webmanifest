@@ -1,0 +1,7 @@
+{
+    "name": "溫權App",
+    "short_name": "溫權App",
+    "lang": "zh",
+    "start_url": "/",
+    "display": "standalone"
+  }
