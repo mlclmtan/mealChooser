@@ -15,3 +15,9 @@
 -   各種條件過濾（冷氣、食物類別、地點、用餐時段）
 -   列表顯示所有餐廳
 -   新增餐廳
+
+## 特色/技術
+
+-   Web Progressive App (WPA) Android+iOS
+-   使用Axios AJAX 防止 CSRF、支持較舊瀏覽器
+-   ES2017 Async/Await
