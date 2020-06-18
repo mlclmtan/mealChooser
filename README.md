@@ -6,7 +6,7 @@
 
 [![SB Admin 2 Preview](https://github.com/mlclmtan/mealChooser/blob/master/readmepic1.jpg)]
 
-**[Launch Live Preview籌備中](籌備中)**
+**[Launch Live Preview](http://mlclmtan.ga/mealchooser/)**
 
 ## 功能
 
