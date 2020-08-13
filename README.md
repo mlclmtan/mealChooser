@@ -4,7 +4,7 @@
 
 ## Preview
 
-[![SB Admin 2 Preview](https://github.com/mlclmtan/mealChooser/blob/master/readmepic1.jpg)]
+![SB Admin 2 Preview](https://github.com/mlclmtan/mealChooser/blob/master/readmepic1.jpg)
 
 **[Live Preview](http://mealchooser.mlclmtan.ga/)**
 
